@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import AppBar from "@/components/appBar";
+import { useEffect, useState } from "react";
+import { auth } from "@/auth";
+import { Session } from "next-auth";
 
 const inter = Inter({ subsets: ["latin"] });
 
