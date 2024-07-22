@@ -1,5 +1,6 @@
 import { auth, signIn, signOut } from "@/auth"
- 
+import { ArrowRightStartOnRectangleIcon } from "@heroicons/react/16/solid"; 
+import TButton from "./TButton";
 export default async function SignIn() {
   const session = await auth()
   return (
@@ -13,7 +14,12 @@ export default async function SignIn() {
             : await signIn("github")
         }}
       >
-        <button type="submit">{!session?.user ? 'Sign In with GitHub' : 'Sign Out'}</button>
+        <TButton>
+          <div className="flex items-center">
+            <ArrowRightStartOnRectangleIcon className="w-5 h-5 mr-2" />
+            {!session?.user ? 'Sign In with GitHub' : 'Sign Out'}
+          </div>
+        </TButton>
       </form>
     </>
   )
